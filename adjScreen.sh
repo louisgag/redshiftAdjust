@@ -18,11 +18,12 @@ elif [ "$1" == "bDown" ]; then
     bNew=$(echo "($bNess-0.1)*(($bNess-0.1)>=0.1) + 0.1*(($bNess-0.1)<0.1)"|bc)
 elif [ "$1" == "gUp" ]; then
     echo "gUp"
-    cNew=$(echo "($cTemp+1000)*(($cTemp+1000)<=25000) + 1000*(($cTemp+1000)>25000)"|bc)
+    cNew=$(echo "($cTemp+500)*(($cTemp+500)<=25000) + 25000*(($cTemp+500)>25000)"|bc)
 elif [ "$1" == "gDown" ]; then
     echo "gDown"
-    cNew=$(echo "($cTemp-1000)*(($cTemp-1000)>=1000) + 1000*(($cTemp-1000)<1000)"|bc)
+    cNew=$(echo "($cTemp-500)*(($cTemp-500)>=1000) + 1000*(($cTemp-500)<1000)"|bc)
 fi
 echo $bNew > $scriptDir/.adjScreen_bNess.dat
 echo $cNew > $scriptDir/.adjScreen_cTemp.dat
-redshift -oP -O $cNew -b $bNew  
+redshift -oP -O $cNew -b $bNew
+~                                  

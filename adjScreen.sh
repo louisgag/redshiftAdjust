@@ -1,29 +1,20 @@
 #!/bin/bash
-#rsOut=$(redshift -l 48.78:9.18 -p 2>&1)
-#cTemp=$(echo $rsOut|awk -F'temperature: ' '{print $2}'|awk '{print $1}'|sed 's/K//')
-#bNess=$(echo $rsOut|awk -F'Brightness: ' '{print $2}'|awk '{print $1}')
-
 scriptDir=$(dirname "$0")
 bNess=$(cat $scriptDir/.adjScreen_bNess.dat)
 cTemp=$(cat $scriptDir/.adjScreen_cTemp.dat)
-echo "$bNess $cTemp $1"
 
 cNew=$cTemp;
 bNew=$bNess;
 if [ "$1" == "bUp" ]; then
-    echo "bUp"
-    bNew=$(echo "($bNess+0.1)*(($bNess+0.1)<=1) + 1*(($bNess+0.1)>1)"|bc)
+    bNew=$(echo "($bNess+0.05)*(($bNess+0.05)<=1) + 1*(($bNess+0.05)>1)"|bc)
 elif [ "$1" == "bDown" ]; then
-    echo "bDown"
-    bNew=$(echo "($bNess-0.1)*(($bNess-0.1)>=0.1) + 0.1*(($bNess-0.1)<0.1)"|bc)
+    bNew=$(echo "($bNess-0.05)*(($bNess-0.05)>=0.1) + 0.1*(($bNess-0.05)<0.1)"|bc)
 elif [ "$1" == "gUp" ]; then
-    echo "gUp"
-    cNew=$(echo "($cTemp+500)*(($cTemp+500)<=25000) + 25000*(($cTemp+500)>25000)"|bc)
+    cNew=$(echo "($cTemp+250)*(($cTemp+250)<=25000) + 25000*(($cTemp+250)>25000)"|bc)
 elif [ "$1" == "gDown" ]; then
-    echo "gDown"
-    cNew=$(echo "($cTemp-500)*(($cTemp-500)>=1000) + 1000*(($cTemp-500)<1000)"|bc)
+    cNew=$(echo "($cTemp-250)*(($cTemp-250)>=1000) + 1000*(($cTemp-250)<1000)"|bc)
 fi
+
 echo $bNew > $scriptDir/.adjScreen_bNess.dat
 echo $cNew > $scriptDir/.adjScreen_cTemp.dat
 redshift -oP -O $cNew -b $bNew
-~                                  

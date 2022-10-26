@@ -13,6 +13,7 @@ and
 `./adjScreen.sh gDown`
 
 to respectively increase and decrease temperature.
+Do not forget to allow executing the script (`chmod +x ./adjScreen.sh`) and give the full path when setting a keyboard shortcut.
 
 Note: [Redshift](https://github.com/jonls/redshift) and [bc](https://www.gnu.org/software/bc/) must be installed.
 

@@ -7,14 +7,22 @@ You can save the script and the two .dat files in a directory and run (or set yo
 
 `./adjScreen.sh bUp`
 `./adjScreen.sh bDown`
+
 to respectively increase and decrease brightness,
+
 and
+
 `./adjScreen.sh gUp`
 `./adjScreen.sh gDown`
 
 to respectively increase and decrease temperature.
+
 Do not forget to allow executing the script (`chmod +x ./adjScreen.sh`) and give the full path when setting a keyboard shortcut.
 
-Note: [Redshift](https://github.com/jonls/redshift) and [bc](https://www.gnu.org/software/bc/) must be installed.
+Notes:
+
+- [Redshift](https://github.com/jonls/redshift) and [bc](https://www.gnu.org/software/bc/) must be installed.
+- The auto-ajust function of Redshift must not be enabled.
+- On Gnome-based systems such as Ubuntu you may want to disable auto adjustment of brightness, because it may periodically reset your brightness even if your monitor does not support it. You can do it with this command: `gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false`
 
 

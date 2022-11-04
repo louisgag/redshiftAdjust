@@ -23,6 +23,6 @@ Notes:
 
 - [Redshift](https://github.com/jonls/redshift) and [bc](https://www.gnu.org/software/bc/) must be installed.
 - The auto-ajust function of Redshift must not be enabled.
-- On Gnome-based systems such as Ubuntu you may want to disable auto adjustment of brightness, because it may periodically reset your brightness even if your monitor does not support it. You can do it with this command: `gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false`
-
+- On Gnome-based systems such as Ubuntu you may want to disable auto adjustment of brightness, because it may periodically reset your brightness even if your monitor does not support it. You can do it with this command: `gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false`.
+- If despite disabling auto-adjusting the brightness and gamma your system still does it you can also setup another keyboard shortcut to recall your last settings by running adjScreen.sh without arguments.
 
